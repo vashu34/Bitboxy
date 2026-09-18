@@ -10,7 +10,7 @@
       <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family
     =Montserrat:wght@400;600;700;800&family=Pacifico&family=Poppins:wght@300;
     400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+      <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -46,12 +46,17 @@
 
 
       <section id="story">
-            <h2>Our Story</h2>
-            <article>
-                  <img src="assets/images/restaurant.png" width="500">
 
-                  <div>
-                        <h3>Every Meal Has A Story</h3>
+            <article>
+                  <img src="assets/images/restaurant.png">
+
+                  <div class="story-content">
+                        <small>Our Story</small>
+
+                        <h3> Every Meal Has
+                              <span>A Story</span>
+                        </h3>
+
                         <p> BiteBox was founded with a simple goal —
                               to serve fresh, delicious food using quality
                               ingredients and authentic recipes.
@@ -61,33 +66,81 @@
                               grown into a trusted food destination loved
                               by thousands of happy customers.
                         </p>
+
+                        <div class="story-features">
+
+                              <article>
+                                    <img src="assets/icons/fresh.png" width="45">
+                                    <h4>Fresh Ingredients</h4>
+                              </article>
+
+                              <article>
+                                    <img src="assets/icons/heart.png" width="45">
+                                    <h4>Made with Passion</h4>
+                              </article>
+
+                              <article>
+                                    <img src="assets/icons/customers.png" width="45">
+                                    <h4>Loved by Thousands</h4>
+                              </article>
+
+                        </div>
+
                   </div>
             </article>
       </section>
 
+      <!--Vision and mission Section-->
       <section id="mission-vision">
+
             <h2>Our Mission & Vision</h2>
-            <div>
-                  <article>
-                        <h3>Our Mission</h3>
-                        <p> To serve fresh, delicious, and high-quality meals
-                              prepared with the finest ingredients while providing
-                              exceptional customer service and memorable dining
-                              experiences.
-                        </p>
+
+            <div class="mission-vision-container">
+
+                  <!-- Mission -->
+                  <article class="mission">
+                        <div class="icon-box">
+                              <img src="assets/icons/mission-icon.png" alt="Mission Icon">
+                        </div>
+
+                        <div class="content">
+                              <h3>Our Mission</h3>
+
+                              <p>
+                                    To serve fresh, delicious, and high-quality meals
+                                    prepared with the finest ingredients while providing
+                                    exceptional customer service and memorable dining
+                                    experiences.
+                              </p>
+                        </div>
                   </article>
-                  <article>
-                        <h3>Our Vision</h3>
-                        <p> To become the most trusted and loved restaurant by
-                              continuously delivering innovative flavors, outstanding
-                              hospitality, and a welcoming environment for every guest.
-                        </p>
+
+
+                  <!-- Vision -->
+                  <article class="vision">
+                        <div class="icon-box">
+                              <img src="assets/icons/vision-icon.png" alt="Vision Icon">
+                        </div>
+
+                        <div class="content">
+                              <h3>Our Vision</h3>
+
+                              <p>
+                                    To become the most trusted and loved restaurant by
+                                    continuously delivering innovative flavors,
+                                    outstanding hospitality, and a welcoming environment
+                                    for every guest.
+                              </p>
+                        </div>
                   </article>
+
             </div>
+
       </section>
 
       <section id="chefs">
-            <h2>Meet Our Chefs</h2>
+            <small>Meet Our Chefs</small>
+            <h2>The People Behind <span>the Flavor</span></h2>
             <div>
                   <article>
                         <img src="assets/images/chef1.png" width="250">
@@ -139,20 +192,24 @@
             <h2>Restaurant Statistics</h2>
             <div>
                   <article>
-                        <h3>10+</h3>
-                        <p>Years of Experience</p>
+                        <img src="assets/icons/burgericon.png" alt="" >
+                        <h3>100+</h3>
+                        <p>Menu Items</p>
                   </article>
                   <article>
+                        <img src="assets/icons/personicon.png" alt="" >
                         <h3>50K+</h3>
                         <p>Happy Customers</p>
                   </article>
                   <article>
-                        <h3>100+</h3>
-                        <p>Delicious Dishes</p>
-                  </article>
-                  <article>
+                        <img src="assets/icons/haticon.png" alt="" >
                         <h3>25+</h3>
                         <p>Expert Chefs</p>
+                  </article>
+                  <article>
+                        <img src="assets/icons/staricon.png" alt="" >
+                        <h3>4.8</h3>
+                        <p>Customer Rating</p>
                   </article>
             </div>
       </section>
