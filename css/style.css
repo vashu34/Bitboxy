@@ -2468,8 +2468,8 @@ aside mark {
 
     .hero-buttons {
         display: flex;
-
-        gap: 18px;
+        justify-content: center;
+        /* gap: 18px; */
     }
 
     .hero-buttons a {
@@ -3189,7 +3189,7 @@ aside mark {
 
     .hero-buttons {
         display: flex;
-
+        justify-items: center;
         gap: 18px;
     }
 
@@ -3201,6 +3201,9 @@ aside mark {
         height: 55px;
 
         font-size: 17px;
+    }
+    .order-btn{
+        margin: 0 auto;
     }
 
     #home-hero {
