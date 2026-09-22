@@ -2083,16 +2083,15 @@ button:hover {
 #cart-actions {
     width: 92%;
     margin: 25px auto 60px;
-
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
-    gap: 250px;
+    /* gap: 550px; */
 }
 
 #cart-actions a,
 #cart-actions button {
-    width: 220px;
+    width: 100px;
     height: 56px;
     display: flex;
     justify-content: center;
@@ -2475,7 +2474,8 @@ aside mark {
 
         font-size: 17px;
     }
-    .order-btn{
+
+    .order-btn {
         margin: 0 auto;
     }
 
@@ -3025,7 +3025,7 @@ aside mark {
     }
 
     #order-summary {
-        width: 100%;
+        width: 96%;
         margin-top: 30px;
     }
 
@@ -3198,7 +3198,8 @@ aside mark {
 
         font-size: 17px;
     }
-    .order-btn{
+
+    .order-btn {
         margin: 0 auto;
     }
 
@@ -3942,12 +3943,15 @@ aside mark {
         font-size: 12px;
     }
 
-
+    #cart-actions {
+        gap: 25px;
+    }
 
     #order-summary {
-        width: 100%;
+        width: 93%;
         margin-top: 30px;
     }
+
 
     footer {
         margin-top: 30px;
