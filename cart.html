@@ -60,7 +60,7 @@
     <section id="cart-details">
         <section id="shopping-cart">
             <table>
-             <thead>
+                <thead>
                     <tr>
                         <th>Item</th>
 
@@ -218,15 +218,15 @@
 
                         <td>
 
-                        <div class="quantity-box">
-                            <button>-</button>
+                            <div class="quantity-box">
+                                <button>-</button>
 
 
-                            <span>1</span>
+                                <span>1</span>
 
 
-                            <button>+</button>
-                        </div>  
+                                <button>+</button>
+                            </div>
 
                         </td>
 
@@ -255,31 +255,38 @@
 
 
         </section>
-
-
         <aside id="order-summary">
             <h2>Order Summary</h2>
+            <p> <span>Subtotal (3 Items)</span>
+                <span id="subtotal-amount">₹0.00</span>
+            </p>
 
+            <p> <span>Delivery Charges</span>
+                <span id="delivery-amount">₹0.00</span>
+            </p>
+            <p> <span>Packaging Charges</span>
+                <span id="packaging-amount">₹0.00</span>
+            </p>
 
-            <p> <span>Subtotal (3 Items)</span> <span>₹826.00</span> </p>
-
-
-            <p> <span>Delivery Charges</span> <span>₹40.00</span> </p>
-
-
-            <p> <span>Packaging Charges</span> <span>₹20.00</span> </p>
-
+            <p id="discount-row">
+                <span>Discount</span>
+                <span id="discount-amount">₹0.00</span>
+            </p>
 
             <hr>
-            <h3> <span>Total Amount</span> <span>₹886.00</span> </h3>
-
+            <h3><span>Total Amount</span>
+                <span id="total-amount">₹0.00</span>
+            </h3>
 
             <button type="button"> Proceed to Checkout </button>
 
-
             <p> <img src="assets/icons/shield.png" width="18" height="18">
-                Secure Checkout </p>
+                Secure Checkout
+            </p>
+
         </aside>
+
+
     </section>
 
     <!-- Cart Action Buttons -->
@@ -298,6 +305,94 @@
         </button>
 
     </section>
+
+    <footer>
+
+        <!-- Footer Logo Section -->
+        <div class="footer-container">
+            <section class="footer-brand">
+                <img src="assets/images/logo.png" alt="BiteBox Logo" width="180">
+                <p> Delicious food delivered to your doorstep.
+                    Fresh, fast and tasty!
+                </p>
+
+                <div class="footer-socials">
+                    <a href="#">
+                        <img src="assets/icons/facebook.png" alt="Facebook" width="35" height="35">
+                    </a>
+
+                    <a href="#">
+                        <img src="assets/icons/instagram.png" alt="Instagram" width="35" height="35">
+                    </a>
+
+                    <a href="#">
+                        <img src="assets/icons/twitter.png" alt="Twitter" width="35" height="35">
+                    </a>
+
+                    <a href="#">
+                        <img src="assets/icons/youtube.png" alt="YouTube" width="35" height="35">
+                    </a>
+                </div>
+            </section>
+
+            <hr>
+
+            <!-- Quick Links -->
+            <section>
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="cart.html">Cart</a></li>
+                </ul>
+            </section>
+
+            <hr>
+
+            <!-- Customer Service -->
+            <section class="customer-service">
+                <h3>Customer Service</h3>
+                <ul>
+                    <li>Track Order</li>
+                    <li>FAQs</li>
+                    <li>Shipping Policy</li>
+                    <li>Return Policy</li>
+                    <li>Terms & Conditions</li>
+                </ul>
+            </section>
+
+            <hr>
+
+            <!-- Contact Information -->
+            <section class="contact-info">
+                <h3>Contact Us</h3>
+                <p>📞 +91 98765 43210</p>
+                <p>✉ support@bitebox.com</p>
+                <p>📍 123 Food Street, Mumbai, Maharashtra 400001 </p>
+            </section>
+
+            <hr>
+
+            <!-- Payment Methods -->
+            <section class="payment-icons">
+                <h3>Payment Methods</h3>
+                <div>
+                    <img src="assets/images/visa.png" alt="Visa">
+                    <img src="assets/images/mastercard.png" alt="MasterCard">
+                    <img src="assets/images/upi.png" alt="UPI">
+                    <img src="assets/images/paytm.png" alt="Paytm">
+                </div>
+            </section>
+        </div>
+
+        <hr>
+        <p class="footer-bottom"> © 2026 BiteBox. All Rights Reserved. </p>
+
+    </footer>
+
+    <script src="js/script.js"></script>
 </body>
 
 </html>
