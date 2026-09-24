@@ -1049,6 +1049,75 @@ nav a.active {
     margin: 10px;
 }
 
+#menu-search-data {
+    width: 360px;
+    height: 48px;
+    margin: 30px auto;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* Search Input */
+#menu-search-data input {
+    flex: 1;
+    height: 100%;
+    padding: 0 18px;
+    border: none;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    color: #333;
+    background-color: transparent;
+}
+
+/* Placeholder */
+/* Search Input */
+#menu-search-data input {
+
+    height: 100%;
+    padding: 0 18px;
+    border: none;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    color: #333;
+    background-color: transparent;
+}
+
+/* Placeholder */
+#menu-search-data input::placeholder {
+    color: #777;
+}
+
+/* Search Button */
+#menu-search-data button {
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background-color: #ff4b2b;
+    cursor: pointer;
+}
+
+#menu-search-data button:hover {
+    background-color: #ac1f06;
+
+}
+
+/* Search Icon */
+#menu-search-data button img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
 /* Badge */
 
 .tag {
@@ -1106,7 +1175,7 @@ nav a.active {
 }
 
 #menu-items article button {
-    width: calc(100% - 20px);
+    width: 210px;
     margin: 0 10px 12px;
     padding: 9px 0;
     background: #ffffff;
@@ -2086,7 +2155,7 @@ button:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-  
+
 }
 
 #cart-actions a,
@@ -3021,13 +3090,13 @@ aside mark {
     }
 
     #cart-actions {
-    width: 92%;
-    margin: 25px auto 60px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  
-}
+        width: 92%;
+        margin: 25px auto 60px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+    }
 
     #shopping-cart {
         width: 100%;
@@ -4059,5 +4128,23 @@ aside mark {
         line-height: 22px;
     }
 
+    #menu-items h2 {
+        font-size: 20px;
+        font-weight: 700;
+        color: #222222;
+        margin-bottom: 40px;
+    }
 
+    #menu-search-data {
+        width: 300px;
+        height: 48px;
+        margin: 30px auto;
+        display: flex;
+        align-items: center;
+        background-color: white;
+        border: 1px solid #ddd;
+        border-radius: 25px;
+        overflow: hidden;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    }
 }

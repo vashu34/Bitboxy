@@ -48,41 +48,58 @@
 
 
     <section id="categories">
+
         <h2>Browse Categories</h2>
 
         <div>
-            <article>
+
+            <article data-category="pizza">
                 <img src="assets/images/pizza.png" alt="Pizza" width="120" height="120">
                 <h3>Pizza</h3>
             </article>
 
-            <article>
+            <article data-category="burger">
                 <img src="assets/images/burger.png" alt="Burger" width="120" height="120">
                 <h3>Burger</h3>
             </article>
 
-            <article>
-                <img src="assets/images/pasta.png" width="120" height="120">
+            <article data-category="pasta">
+                <img src="assets/images/pasta.png" alt="Pasta" width="120" height="120">
                 <h3>Pasta</h3>
             </article>
 
-            <article>
-                <img src="assets/images/biryani.png" width="120" height="120">
+            <article data-category="biryani">
+                <img src="assets/images/biryani.png" alt="Biryani" width="120" height="120">
                 <h3>Biryani</h3>
             </article>
 
-            <article>
+            <article data-category="desserts">
                 <img src="assets/images/dessert.png" alt="Desserts" width="120" height="120">
                 <h3>Desserts</h3>
             </article>
+
         </div>
+
     </section>
 
-    <!-- menu items -->
+
+    <!-- Search Bar -->
+
+    <div id="menu-search-data">
+
+        <input type="text" id="menu-search" placeholder="Search for dishes...">
+
+        <button type="button" id="search-button">
+            <img src="assets/icons/search.png" alt="Search">
+        </button>
+
+    </div>
 
 
     <!-- Menu Items Section -->
+
     <section id="menu-items">
+
         <h2>
             <span></span>
             Popular Dishes
@@ -93,7 +110,7 @@
 
             <!-- Menu Item 1 -->
 
-            <article>
+            <article data-category="pizza">
 
                 <span class="tag">Bestseller</span>
 
@@ -112,11 +129,13 @@
                     <img src="assets/icons/cart-red.png" alt="Cart" width="14" height="14">
                     Add to Cart
                 </button>
+
             </article>
+
 
             <!-- Menu Item 2 -->
 
-            <article>
+            <article data-category="burger">
 
                 <img src="assets/images/burger.png" alt="Cheese Burger">
 
@@ -136,11 +155,13 @@
 
             </article>
 
+
             <!-- Menu Item 3 -->
 
-            <article>
+            <article data-category="pasta">
 
                 <img src="assets/images/pasta.png" alt="Creamy Alfredo Pasta">
+
                 <h3>Creamy Alfredo Pasta</h3>
 
                 <p class="rating">
@@ -157,9 +178,10 @@
 
             </article>
 
+
             <!-- Menu Item 4 -->
 
-            <article>
+            <article data-category="biryani">
 
                 <span class="tag spicy">Spicy</span>
 
@@ -171,6 +193,7 @@
                     &#9733;&#9733;&#9733;&#9733;&#9733;
                     <small>(110)</small>
                 </p>
+
                 <p class="price">₹279</p>
 
                 <button>
@@ -180,9 +203,10 @@
 
             </article>
 
+
             <!-- Menu Item 5 -->
 
-            <article>
+            <article data-category="desserts">
 
                 <img src="assets/images/cake.png" alt="Choco Lava Cake">
 
@@ -201,9 +225,11 @@
                 </button>
 
             </article>
+
+
             <!-- Menu Item 6 -->
 
-            <article>
+            <article data-category="burger">
 
                 <img src="assets/images/sandwich.png" alt="Veg Club Sandwich">
 
@@ -226,8 +252,7 @@
         </div>
 
     </section>
-
-
+    
     <section id="offer">
         <div class="offer-content">
             <h2>Today's Special Offer!</h2>
@@ -238,9 +263,7 @@
             <a href="menu.html"> Order Now </a>
         </div>
 
-        <!-- <div class="offer-image">
-            <img src="assets/images/pizza.png" width="320">
-        </div> -->
+
     </section>
 
     <footer>
