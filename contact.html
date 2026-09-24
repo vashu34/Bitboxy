@@ -26,11 +26,16 @@
             |
             <a href="about.html">About</a>
             |
-            <a href="contact.html">Contact</a>
+            <a href="contact.html" class="active">Contact</a>
 
             <a href="cart.html">
                 <img src="assets/icons/cart.png" alt="Cart Icon" width="22" height="22">
             </a>
+
+             <button type="button" id="theme-toggle" class="theme-toggle">
+                <span class="theme-icon">&#9728;</span>
+                <span class="theme-text"> DAY MODE</span>
+            </button>
         </nav>
 
     </header>
@@ -150,16 +155,16 @@
             <hr>
             <form>
                 <div class="form-row">
-                    <input type="text" placeholder="Your Name">
-                    <input type="email" placeholder="Your Email">
+                    <input type="text" placeholder="Your Name" name="name">
+                    <input type="email" placeholder="Your Email" name="email">
                 </div>
 
                 <div class="form-row">
-                    <input type="tel" placeholder="Phone Number">
-                    <input type="text" placeholder="Subject">
+                    <input type="tel" placeholder="Phone Number" name="phone">
+                    <input type="text" placeholder="Subject" name="subject">
                 </div>
-                <textarea placeholder="Your Message"></textarea>
-                <button>Send Message ✈</button>
+                <textarea placeholder="Your Message"  name="message"></textarea>
+                <button class="contact-form-button" type="submit">Send Message ✈</button>
             </form>
         </div>
 
