@@ -51,19 +51,48 @@
 function calculateItemTotal(price, quantity) {
     return price * quantity;
 }
+
 function calculateSubtotal() {
+
     let subtotal = 0;
-    let cartRows = document.querySelectorAll("#shopping-cart tbody tr");
+
+    let cartRows =
+        document.querySelectorAll("#shopping-cart tbody tr");
+
     cartRows.forEach(function (row) {
-        let priceText = row.children[1].textContent;
-        let price = parseFloat(priceText.replace("₹", ""));
-        let quantityText = row.querySelector(".quantity-box span").textContent;
-        let quantity = parseInt(quantityText);
-        let itemTotal = calculateItemTotal(price, quantity);
-        subtotal += itemTotal;
+
+       
+        if (!row.querySelector(".quantity-box")) {
+            return;
+        }
+
+        let priceText =
+            row.children[1].textContent;
+
+        let price =
+            parseFloat(priceText.replace("₹", ""));
+
+
+        let quantityText =
+            row.querySelector(".quantity-box span").textContent;
+
+        let quantity =
+            parseInt(quantityText);
+
+
+        let itemTotal =
+            price * quantity;
+
+
+        subtotal =
+            subtotal + itemTotal;
+
     });
+
+
     return subtotal;
 }
+
 
 function calculateDeliveryCharge(subtotal) {
     if (subtotal === 0) {

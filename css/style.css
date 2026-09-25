@@ -365,6 +365,10 @@ body.dark-theme .story-features h4 {
     color: #ffffff !important;
 }
 
+body.dark-theme h3 {
+    color: #ffffff !important;
+}
+
 
 body.dark-theme .story-features article p {
     color: #bbbbbb !important;
@@ -3113,6 +3117,7 @@ aside mark {
         height: 18px;
     }
 
+
     #home-hero {
         height: 400px;
 
@@ -4766,4 +4771,3 @@ aside mark {
         box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
     }
 }
-
