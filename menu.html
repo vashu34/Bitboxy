@@ -22,18 +22,18 @@
         <!--Navigation Menu-->
         <nav>
             <a href="index.html">Home</a>
-            
+
             <a href="menu.html" class="active">Menu</a>
-            
+
             <a href="about.html">About</a>
-            
+
             <a href="contact.html">Contact</a>
 
             <a href="cart.html">
                 <img src="assets/icons/cart.png" alt="Cart Icon" width="22" height="22">
             </a>
 
-             <button type="button" id="theme-toggle" class="theme-toggle">
+            <button type="button" id="theme-toggle" class="theme-toggle">
                 <span class="theme-icon">&#9728;</span>
                 <span class="theme-text"> DAY MODE</span>
             </button>
@@ -89,8 +89,8 @@
 
 
     <!-- Search Bar -->
-
-    <div id="menu-search-data">
+    <!-- menu-search-data -->
+    <div id="menu-controls">
 
         <input type="text" id="menu-search" placeholder="Search for dishes...">
 
@@ -98,6 +98,62 @@
             <img src="assets/icons/search.png" alt="Search">
         </button>
 
+        <button type="button" id="add-menu-btn">Add Item </button>
+
+    </div>
+
+    <div id="menu-modal" class="menu-modal">
+        <div class="menu-modal-content">
+            <div class="modal-header">
+                <h2>Add Menu Item</h2>
+            </div>
+
+            <form id="menu-form">
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="menu-name"> Menu Item Name </label>
+                        <input type="text" id="menu-name" placeholder="Enter item name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="menu-price"> Price (₹) </label>
+                        <input type="number" id="menu-price" placeholder="Enter price" required>
+                    </div>
+
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="menu-category"> Category </label>
+                        <input type="text" id="menu-category" placeholder="Enter category" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="menu-rating"> Rating (0 - 5) </label>
+                        <input type="text" id="menu-rating" placeholder="★★★★★" required>
+                    </div>
+
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="menu-reviews"> Number of Reviews </label>
+                        <input type="number" id="menu-reviews" placeholder="Enter number of reviews" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="menu-image"> Image URL / Path </label>
+                        <input type="text" id="menu-image" placeholder="Enter image URL or path" required>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" id="cancel-menu-form"> Cancel </button>
+                    <button type="submit"> Add Menu Item </button>
+                </div>
+            </form>
+        </div>
     </div>
 
 

@@ -61,7 +61,7 @@ function calculateSubtotal() {
 
     cartRows.forEach(function (row) {
 
-       
+
         if (!row.querySelector(".quantity-box")) {
             return;
         }
@@ -328,12 +328,31 @@ function renderCart() {
 
 }
 
+function updateCartCount() {
+
+    let cartCount = 0;
+
+    cart.forEach(function (item) {
+        cartCount += item.quantity;
+    });
+
+    let cartCountElement =
+        document.getElementById("cart-count");
+
+    if (cartCountElement) {
+        cartCountElement.textContent = cartCount;
+    }
+}
+
 function increaseQuantity(index) {
     cart[index].quantity++;
     localStorage.setItem(
         "biteboxCart",
         JSON.stringify(cart)
     );
+    renderCart();
+    updateOrderSummary();
+    updateCartCount()
 
 }
 
@@ -347,6 +366,7 @@ function decreaseQuantity(index) {
     }
     renderCart();
     updateOrderSummary();
+    updateCartCount();
 }
 
 function removeFromCart(index) {
@@ -355,7 +375,7 @@ function removeFromCart(index) {
 
     renderCart();
     updateOrderSummary();
-
+    updateCartCount();
 }
 
 function clearCart() {
@@ -363,6 +383,7 @@ function clearCart() {
     localStorage.removeItem("biteboxCart");
     renderCart();
     updateOrderSummary();
+    updateCartCount()
 }
 
 let clearCartButton =
@@ -610,4 +631,216 @@ if (themeButton) {
 
 renderCart();
 updateOrderSummary();
+updateCartCount()
 
+
+
+function showToast(message, type) {
+
+    let toast = document.createElement("div");
+
+    toast.className = "toast " + type;
+
+    toast.textContent = message;
+
+    document.body.appendChild(toast);
+
+    setTimeout(function () {
+        toast.classList.add("show");
+    }, 100);
+
+    setTimeout(function () {
+
+        toast.classList.remove("show");
+
+        setTimeout(function () {
+            toast.remove();
+        }, 300);
+
+    }, 3000);
+}
+
+
+let contactForm = document.querySelector(".right-column form");
+
+
+if (contactForm) {
+
+    contactForm.addEventListener(
+        "submit",
+        function (event) {
+
+            event.preventDefault();
+
+
+            let name =
+                contactForm.querySelector(
+                    'input[name="name"]'
+                );
+
+            let email =
+                contactForm.querySelector(
+                    'input[name="email"]'
+                );
+
+            let phone =
+                contactForm.querySelector(
+                    'input[name="phone"]'
+                );
+
+            let subject =
+                contactForm.querySelector(
+                    'input[name="subject"]'
+                );
+
+            let message =
+                contactForm.querySelector(
+                    'textarea[name="message"]'
+                );
+
+
+            if (!name.value.trim()) {
+
+                showToast(
+                    "⚠ Please enter your name.",
+                    "error"
+                );
+
+                return;
+            }
+
+
+            if (!email.value.trim()) {
+
+                showToast(
+                    "⚠ Please enter your email address.",
+                    "error"
+                );
+
+                return;
+            }
+
+
+            if (!email.validity.valid) {
+
+                showToast(
+                    "⚠ Please enter a valid email address.",
+                    "error"
+                );
+
+                return;
+            }
+
+
+            let phonePattern = /^[6-9]\d{9}$/;
+
+
+            if (!phone.value.trim()) {
+
+                showToast(
+                    "⚠ Please enter your phone number.",
+                    "error"
+                );
+
+                return;
+            }
+
+
+            if (!phonePattern.test(phone.value.trim())) {
+
+                showToast(
+                    "⚠ Please enter a valid 10-digit phone number.",
+                    "error"
+                );
+
+                return;
+            }
+
+
+            if (!subject.value.trim()) {
+
+                showToast(
+                    "⚠ Please enter a subject.",
+                    "error"
+                );
+
+                return;
+            }
+
+
+            if (!message.value.trim()) {
+
+                showToast(
+                    "⚠ Please enter your message.",
+                    "error"
+                );
+
+                return;
+            }
+
+
+            showToast(
+                "✓ Message sent successfully!",
+                "success"
+            );
+
+
+            contactForm.reset();
+
+        }
+    );
+}
+
+// hide and show the menu form
+const addMenuBtn = document.getElementById("add-menu-btn");
+const menuModal = document.getElementById("menu-modal");
+const cancelMenuForm = document.getElementById("cancel-menu-form");
+
+addMenuBtn.addEventListener("click", function () {
+    menuModal.classList.add("show");
+});
+cancelMenuForm.addEventListener("click", function () {
+    menuModal.classList.remove("show");
+});
+
+
+const menuForm = document.getElementById("menu-form");
+
+menuForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+    const name = document.getElementById("menu-name").value;
+    const price = document.getElementById("menu-price").value;
+    const category = document.getElementById("menu-category").value;
+    const rating = document.getElementById("menu-rating").value;
+    const reviews = document.getElementById("menu-reviews").value;
+    const image = document.getElementById("menu-image").value;
+    console.log(name);
+    console.log(price);
+    console.log(category);
+    console.log(rating);
+    console.log(reviews);
+    console.log(image);
+
+});
+
+const menuItem = {
+    name: name,
+    price: price,
+    category: category,
+    rating: rating,
+    reviews: reviews,
+    image: image
+};
+
+console.log(menuItem);
+
+const API_URL = "https://6ab66c64c4c7bb67b918d4c9.mockapi.io/menu";
+
+fetch(API_URL, {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify(menuItem)
+})
+    .then(response => response.json())
