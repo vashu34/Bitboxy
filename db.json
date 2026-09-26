@@ -1,0 +1,13 @@
+{
+  "menu": [
+    {
+      "name": "Vada Pav",
+      "price": "567",
+      "category": "ahgdashd",
+      "rating": "**",
+      "reviews": "12",
+      "image": "https://www.shutterstock.com/image-photo/selective-focus-vada-pav-indias-260nw-2508474945.jpg",
+      "id": 1
+    }
+  ]
+}

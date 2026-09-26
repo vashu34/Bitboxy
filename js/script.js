@@ -791,6 +791,8 @@ if (contactForm) {
     );
 }
 
+
+
 // hide and show the menu form
 const addMenuBtn = document.getElementById("add-menu-btn");
 const menuModal = document.getElementById("menu-modal");
@@ -804,43 +806,283 @@ cancelMenuForm.addEventListener("click", function () {
 });
 
 
+const API_URL = "http://localhost:3000/menu";
+let updateMenuId = null;
+
 const menuForm = document.getElementById("menu-form");
 
-menuForm.addEventListener("submit", function (event) {
+menuForm.addEventListener("submit", async function (event) {
+
     event.preventDefault();
+
     const name = document.getElementById("menu-name").value;
     const price = document.getElementById("menu-price").value;
     const category = document.getElementById("menu-category").value;
     const rating = document.getElementById("menu-rating").value;
     const reviews = document.getElementById("menu-reviews").value;
     const image = document.getElementById("menu-image").value;
-    console.log(name);
-    console.log(price);
-    console.log(category);
-    console.log(rating);
-    console.log(reviews);
-    console.log(image);
+
+
+    const menuItem = {
+
+        name: name,
+        price: price,
+        category: category,
+        rating: rating,
+        reviews: reviews,
+        image: image
+
+    };
+
+
+    try {
+
+        if (updateMenuId !== null) {
+
+            await updateMenuItem(updateMenuId, menuItem);
+
+            updateMenuId = null;
+
+        } else {
+
+            const response = await fetch(API_URL, {
+
+                method: "POST",
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify(menuItem)
+
+            });
+
+            const data = await response.json();
+
+            console.log("Menu item added:", data);
+
+            displayMenuItems([data]);
+
+        }
+
+
+        menuModal.classList.remove("show");
+
+        menuForm.reset();
+
+
+    } catch (error) {
+
+        console.error("Error saving menu item:", error);
+
+    }
 
 });
 
-const menuItem = {
-    name: name,
-    price: price,
-    category: category,
-    rating: rating,
-    reviews: reviews,
-    image: image
-};
 
-console.log(menuItem);
 
-const API_URL = "https://6ab66c64c4c7bb67b918d4c9.mockapi.io/menu";
 
-fetch(API_URL, {
-    method: "POST",
-    headers: {
-        "Content-Type": "application/json"
-    },
-    body: JSON.stringify(menuItem)
-})
-    .then(response => response.json())
+
+async function fetchMenuItems() {
+
+    try {
+        const response = await fetch(API_URL);
+        const menuItems = await response.json();
+        console.log("Menu items fetched:", menuItems);
+        displayMenuItems(menuItems);
+
+    } catch (error) {
+        console.error("Error fetching menu items:", error);
+
+    }
+}
+
+
+
+function displayMenuItems(menuItems) {
+
+    const menuContainer = document.getElementById("menu-container");
+
+
+    menuItems.forEach(menuItem => {
+
+        const card = document.createElement("article");
+        card.classList.add("api-menu-card");
+        card.dataset.category = menuItem.category;
+        card.dataset.id = menuItem.id;
+
+        card.innerHTML = `
+            <img src="${menuItem.image}" alt="${menuItem.name}">
+
+            <h3>${menuItem.name}</h3>
+
+            <p class="rating">
+                ${menuItem.rating}
+                <small>(${menuItem.reviews})</small>
+            </p>
+
+            <p class="price">₹${menuItem.price}</p>
+
+             <div class="menu-actions">
+
+          <button type="button" class="update-menu-btn">
+            <img src="assets/icons/edit.png">
+          </button>
+
+          <button type="button" class="delete-menu-btn">
+             <img src="assets/icons/delete.png">
+          </button>
+
+        </div>
+
+            <button>
+                <img src="assets/icons/cart.png" alt="Cart" width="14" height="14">
+                Add to Cart
+            </button>
+        `;
+
+        menuContainer.appendChild(card);
+
+    });
+}
+
+fetchMenuItems();
+
+
+document.getElementById("menu-container").addEventListener("click", function (event) {
+
+    if (event.target.closest(".update-menu-btn")) {
+
+        const button = event.target.closest(".update-menu-btn");
+
+        const card = button.closest("article");
+        const menuId = card.dataset.id;
+        updateMenuId = menuId;
+        console.log("Menu ID:", menuId);
+
+
+        const menuName = card.querySelector("h3").textContent;
+
+        const price = card.querySelector(".price").textContent
+            .replace("₹", "")
+            .trim();
+
+        const rating = card.querySelector(".rating").childNodes[0]
+            .textContent.trim();
+
+        const reviews = card.querySelector(".rating small").textContent
+            .replace("(", "")
+            .replace(")", "")
+            .trim();
+
+        const category = card.dataset.category;
+
+        const image = card.querySelector("img").src;
+
+
+        document.getElementById("menu-name").value = menuName;
+
+        document.getElementById("menu-price").value = price;
+
+        document.getElementById("menu-category").value = category;
+
+        document.getElementById("menu-rating").value = rating;
+
+        document.getElementById("menu-reviews").value = reviews;
+
+        document.getElementById("menu-image").value = image;
+
+
+        document.querySelector(".modal-header h2").textContent =
+            "Update Menu Item";
+
+        document.querySelector("#menu-form button[type='submit']").textContent =
+            "Update Menu Item";
+
+
+        menuModal.classList.add("show");
+    }
+
+    if (event.target.closest(".delete-menu-btn")) {
+
+        const button =
+            event.target.closest(".delete-menu-btn");
+
+        const card =
+            button.closest("article");
+
+        const menuId =
+            card.dataset.id;
+
+        console.log("Delete Menu ID:", menuId);
+
+        deleteMenuItem(menuId, card);
+
+    }
+
+});
+
+
+async function updateMenuItem(menuId, menuItem) {
+
+    try {
+
+        const response = await fetch(API_URL + "/" + menuId, {
+
+            method: "PUT",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify(menuItem)
+
+        });
+
+        const data = await response.json();
+
+        console.log("Menu item updated:", data);
+
+        const menuContainer = document.getElementById("menu-container");
+
+        const apiCards = menuContainer.querySelectorAll(".api-menu-card");
+
+        apiCards.forEach(card => {
+            card.remove();
+        });
+
+        fetchMenuItems();
+
+    } catch (error) {
+
+        console.error("Error updating menu item:", error);
+
+    }
+
+}
+
+
+
+async function deleteMenuItem(menuId, card) {
+
+    try {
+
+        const response = await fetch(API_URL + "/" + menuId, {
+
+            method: "DELETE"
+
+        });
+
+        const data = await response.json();
+
+        console.log("Menu item deleted:", data);
+
+        card.remove();
+
+    } catch (error) {
+
+        console.error("Error deleting menu item:", error);
+
+    }
+
+}

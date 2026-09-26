@@ -1954,12 +1954,14 @@ body.dark-theme #cart-actions a {
     border-color: #ff3b30;
     box-shadow: 0 0 4px rgba(255, 59, 48, 0.2);
 }
+
 /* =========================================================
    RATING FIELD
 ========================================================= */
 #menu-form input[name="rating"] {
     color: #666666;
 }
+
 /* =========================================================
    FORM ACTION BUTTONS
 ========================================================= */
@@ -1970,6 +1972,7 @@ body.dark-theme #cart-actions a {
     gap: 10px;
     margin-top: 30px;
 }
+
 /* Both Buttons */
 
 
@@ -1994,6 +1997,7 @@ body.dark-theme #cart-actions a {
     color: #333333;
     border: 1px solid #cccccc;
 }
+
 #cancel-menu-form:hover {
     background: #f5f5f5;
 }
@@ -2096,6 +2100,42 @@ body.dark-theme #cart-actions a {
 #menu-items article:hover {
     box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
 }
+
+#menu-items article {
+    position: relative;
+}
+
+#menu-items article .menu-actions {
+    position: absolute;
+    right: 20px;
+    bottom: 68px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0;
+}
+
+#menu-items article .menu-actions button {
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: transparent;
+    border-radius: 0;
+    cursor: pointer;
+}
+
+#menu-items article .menu-actions button img {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+}
+
+#menu-items article .menu-actions button:hover {
+    background: transparent;
+}
+
 
 /* About story  */
 #story {
